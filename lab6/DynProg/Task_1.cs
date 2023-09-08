@@ -1,26 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DynProg
+﻿namespace DynProg
 {
-    public struct Elem
-    {
-        public bool Change;
-        public int Income;
-        public Elem()
-        {
-            Change = false;
-            Income = 0;
-        }
-    }
-    public class Lab
+    public class Task_1 : Solvable
     {
         private Elem[,] table;
         private int size, initialIncome, expenses;
-        public Lab(int size, int initialIncome, int expenses)
+        public Task_1(int size, int initialIncome, int expenses)
         {
             table = new Elem[size + 2, size];
             this.size = size;
@@ -51,18 +35,6 @@ namespace DynProg
             }
         }
 
-        private void ShowTable()
-        {
-            for (int i = 0; i < size + 1; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    Console.Write(Convert.ToInt32(table[i, j].Change) + " " + table[i, j].Income + "   ");
-                }
-                Console.WriteLine();
-            }
-        }
-
         private void CreateTable()
         {
             for (int i = 1; i < size; i++)
@@ -85,6 +57,18 @@ namespace DynProg
             }
         }
 
+        private void ShowTable()
+        {
+            for (int i = 0; i < size + 1; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(Convert.ToInt32(table[i, j].Change) + " " + table[i, j].Income + "   ");
+                }
+                Console.WriteLine();
+            }
+        }
+
         private void Count()
         {
             int row = 0;
@@ -103,6 +87,16 @@ namespace DynProg
                     col--;
                 }
             }
+        }
+    }
+    public struct Elem
+    {
+        public bool Change;
+        public int Income;
+        public Elem()
+        {
+            Change = false;
+            Income = 0;
         }
     }
 }
