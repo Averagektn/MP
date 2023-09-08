@@ -22,13 +22,16 @@ var arr = new int[6, 3]
     { 76, 78, 77 }
 };
 
+
 var res = new int[6, 6];
+var f2 = new int[6] { 0, 10, 31, 42, 62, 76};
+
 
 for (int i = 0; i < 6; i++)
 {
     for (int j = 0; j <= i; j ++)
     {
-        res[i, j] = arr[i - j, 0] + arr[j, 1];
+        res[i, j] = arr[j, 1] + arr[i - j, 0];
     }
 }
 
@@ -39,6 +42,11 @@ for (int i = 0; i < 6; i++)
         Console.Write(res[i, j] + " ");
     }
     Console.WriteLine();
+}
+
+for (int i = 0; i < 6; i++)
+{
+    f2[i] = FindMax(res[i]);
 }
 
 // выделить максимумы из каждой строки массива. Они и будут оптимальными.
@@ -59,6 +67,21 @@ for (int i = 0; i < 6; i++)
         Console.Write(res[i, j] + " ");
     }
     Console.WriteLine();
+}
+
+int FindMax(int[] arr)
+{
+    int res = arr[0];
+
+    for (int i = 1; i < arr.Length; i++)
+    {
+        if (res < arr[i])
+        {
+            res = arr[i];
+        }
+    }
+
+    return res;
 }
 
 /*lab = new Task_2();
