@@ -30,7 +30,7 @@
 ### TASK №1
  * By the beginning of the analyzed period, new equipment was installed at the enterprise.
  * Determine the optimal equipment replacement cycle
-===
+
  * К началу анализируемого периода на предприятии установлено новое оборудование.
  * Определить оптимальный цикл замены оборудования
  ---
