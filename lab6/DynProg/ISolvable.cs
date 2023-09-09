@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DynProg
 {
-    public interface Solvable
+    public interface ISolvable
     {
         void Solve();
     }

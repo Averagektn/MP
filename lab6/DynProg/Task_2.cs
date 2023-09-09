@@ -1,6 +1,6 @@
 ﻿namespace DynProg
 {
-    public class Task_2 : Solvable
+    public class Task_2 : ISolvable
     {
         public Task_2()
         {

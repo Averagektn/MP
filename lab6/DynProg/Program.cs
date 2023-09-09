@@ -1,7 +1,7 @@
 ﻿using DynProg;
 
 /*int time = 11, initialIncome = 11, replacementCost = 11;
-Solvable lab = new Task_1(time, initialIncome, replacementCost);
+ISolvable lab = new Task_1(time, initialIncome, replacementCost);
 lab.Solve();*/
 
 /*var arr = new int[5, 4] 
@@ -22,9 +22,10 @@ var arr = new int[6, 3]
     { 76, 78, 77 }
 };
 
-
 var res = new int[6, 6];
-var f2 = new int[6] { 0, 10, 31, 42, 62, 76};
+
+var f1 = new int[6] { 0, 10, 31, 42, 62, 76 };
+var f2 = new int[6] { 0, 10, 31, 42, 62, 76 };
 
 
 for (int i = 0; i < 6; i++)
@@ -44,11 +45,6 @@ for (int i = 0; i < 6; i++)
     Console.WriteLine();
 }
 
-for (int i = 0; i < 6; i++)
-{
-    f2[i] = FindMax(res[i]);
-}
-
 // выделить максимумы из каждой строки массива. Они и будут оптимальными.
 var res1 = new int[6, 6];
 
@@ -64,7 +60,7 @@ for (int i = 0; i < 6; i++)
 {
     for (int j = 0; j < 6; j++)
     {
-        Console.Write(res[i, j] + " ");
+        Console.Write($" {0, 5} ", res[i, j]);
     }
     Console.WriteLine();
 }

@@ -1,6 +1,6 @@
 ﻿namespace DynProg
 {
-    public class Task_1 : Solvable
+    public class Task_1 : ISolvable
     {
         private Elem[,] table;
         private int size, initialIncome, expenses;
