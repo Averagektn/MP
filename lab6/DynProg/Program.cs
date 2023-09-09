@@ -1,84 +1,33 @@
 ﻿using DynProg;
 
-/*int time = 11, initialIncome = 11, replacementCost = 11;
+// TASK 1
+/* 
+ * By the beginning of the analyzed period, new equipment was installed at the enterprise.
+ * Determine the optimal equipment replacement cycle
+*/
+int time = 11, initialIncome = 11, replacementCost = 11;
 ISolvable lab = new Task_1(time, initialIncome, replacementCost);
-lab.Solve();*/
+lab.Solve();
 
-/*var arr = new int[5, 4] 
-{ 
+// TASK 2
+/*
+ * The firm's board of directors is considering proposals to increase production capacity 
+to increase the output of homogeneous products at the four plants owned by the firm.
+ * To modernize the enterprises, the Board of Directors invests funds in the amount of
+RUR 250 mln. with the discretionary amount of RUR 50 mln. The increase in output
+depends on the allocated amount, its values are presented by enterprises and
+are contained in the table
+*/
+
+var arr = new int[6, 4] 
+{
+    { 0,  0,  0,  0  },
     { 15, 12, 17, 13 },
     { 32, 30, 33, 31 },
     { 39, 38, 40, 37 },
     { 46, 45, 47, 44 },
     { 52, 54, 60, 63 } 
-};*/
-var arr = new int[6, 3]
-{
-    { 0,  0,  0  },
-    { 10, 12, 11 },
-    { 31, 26, 36 },
-    { 42, 36, 45 },
-    { 62, 54, 60 },
-    { 76, 78, 77 }
 };
-
-var res = new int[6, 6];
-
-var f1 = new int[6] { 0, 10, 31, 42, 62, 76 };
-var f2 = new int[6] { 0, 10, 31, 42, 62, 76 };
-
-
-for (int i = 0; i < 6; i++)
-{
-    for (int j = 0; j <= i; j ++)
-    {
-        res[i, j] = arr[j, 1] + arr[i - j, 0];
-    }
-}
-
-for (int i = 0; i < 6; i++)
-{
-    for (int j = 0; j < 6; j++)
-    {
-        Console.Write(res[i, j] + " ");
-    }
-    Console.WriteLine();
-}
-
-// выделить максимумы из каждой строки массива. Они и будут оптимальными.
-var res1 = new int[6, 6];
-
-for (int i = 0; i < 6; i++)
-{
-    for (int j = 0; j <= i; j++)
-    {
-        res1[i, j] = arr[i - j, 0] + arr[j, 2];
-    }
-}
-
-for (int i = 0; i < 6; i++)
-{
-    for (int j = 0; j < 6; j++)
-    {
-        Console.Write($" {0, 5} ", res[i, j]);
-    }
-    Console.WriteLine();
-}
-
-int FindMax(int[] arr)
-{
-    int res = arr[0];
-
-    for (int i = 1; i < arr.Length; i++)
-    {
-        if (res < arr[i])
-        {
-            res = arr[i];
-        }
-    }
-
-    return res;
-}
-
-/*lab = new Task_2();
-lab.Solve();*/
+int fabricNum = 4, money = 250, discreteness = 50;
+lab = new Task_2(arr, fabricNum, money, discreteness);
+lab.Solve();

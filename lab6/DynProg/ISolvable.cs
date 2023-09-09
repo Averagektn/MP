@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DynProg
+﻿namespace DynProg
 {
+    /// <summary>
+    /// Interface for solving labs)))
+    /// </summary>
     public interface ISolvable
     {
+        /// <summary>
+        /// Solves every task
+        /// </summary>
         void Solve();
     }
 }

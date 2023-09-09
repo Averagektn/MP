@@ -1,16 +1,34 @@
 ﻿namespace DynProg
 {
+    /// <summary>
+    /// Class that solves the first task of the 6'th lab
+    /// </summary>
     public class Task_1 : ISolvable
     {
-        private Elem[,] table;
-        private int size, initialIncome, expenses;
+        /// <summary>
+        /// The result table with incomes from all posible ways of interchanging the equipment
+        /// </summary>
+        private readonly Elem[,] table;
+        private readonly int size, initialIncome, expenses;
+
+        /// <param name="size">Size of the table. Time period when equipment is used</param>
+        /// <param name="initialIncome">The income of the brand new equipment</param>
+        /// <param name="expenses">How much does equipment cost</param>
         public Task_1(int size, int initialIncome, int expenses)
         {
+            Console.WriteLine();
+            Console.WriteLine("TASK №1");
+            Console.WriteLine();
+
             table = new Elem[size + 2, size];
             this.size = size;
             this.initialIncome = initialIncome;
             this.expenses = expenses;
         }
+
+        /// <summary>
+        /// Implemetation of <see cref="ISolvable"/> interface
+        /// </summary>
         public void Solve()
         {
             Initialize();
@@ -19,6 +37,9 @@
             Count();
         }
 
+        /// <summary>
+        /// Initialization of the first column of the resulting table
+        /// </summary>
         private void Initialize()
         {
             for (int i = 0; i < size + 1; i++)
@@ -35,6 +56,9 @@
             }
         }
 
+        /// <summary>
+        /// Table generation
+        /// </summary>
         private void CreateTable()
         {
             for (int i = 1; i < size; i++)
@@ -57,6 +81,9 @@
             }
         }
 
+        /// <summary>
+        /// Output of the table
+        /// </summary>
         private void ShowTable()
         {
             for (int i = 0; i < size + 1; i++)
@@ -69,6 +96,9 @@
             }
         }
 
+        /// <summary>
+        /// Counting the strategy
+        /// </summary>
         private void Count()
         {
             int row = 0;
@@ -89,10 +119,14 @@
             }
         }
     }
+    /// <summary>
+    /// Element of the table
+    /// </summary>
     public struct Elem
     {
         public bool Change;
         public int Income;
+
         public Elem()
         {
             Change = false;
