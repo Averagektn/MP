@@ -10,15 +10,18 @@
         /// </summary>
         private readonly Elem[,] table;
         private readonly int size, initialIncome, expenses;
+        private int[] incomeTable;
 
         /// <param name="size">Size of the table. Time period when equipment is used</param>
         /// <param name="initialIncome">The income of the brand new equipment</param>
         /// <param name="expenses">How much does equipment cost</param>
-        public Task_1(int size, int initialIncome, int expenses)
+        public Task_1(int size, int initialIncome, int expenses, int[] incomeTable)
         {
             Console.WriteLine();
             Console.WriteLine("TASK №1");
             Console.WriteLine();
+
+            this.incomeTable = incomeTable;
 
             table = new Elem[size + 2, size];
             this.size = size;
@@ -44,7 +47,7 @@
         {
             for (int i = 0; i < size + 1; i++)
             {
-                int difference = initialIncome - i;
+                int difference = incomeTable[i];
                 if (difference <= 0)
                 {
                     table[i, 0].Change = true;
@@ -66,7 +69,7 @@
                 int tmp = initialIncome - expenses + table[1, i - 1].Income;
                 for (int j = 0; j < size + 1; j++)
                 {
-                    int income = initialIncome - j + table[j + 1, i - 1].Income;
+                    int income = incomeTable[j]  + table[j + 1, i - 1].Income;
                     if (income > tmp)
                     {
                         table[j, i].Income = income;
@@ -86,11 +89,16 @@
         /// </summary>
         private void ShowTable()
         {
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write($"  x|B{size - i}");
+            }
+            Console.WriteLine();
             for (int i = 0; i < size + 1; i++)
             {
                 for (int j = 0; j < size; j++)
                 {
-                    Console.Write(Convert.ToInt32(table[i, j].Change) + " " + table[i, j].Income + "   ");
+                    Console.Write( "{0, 3}{1, 3}", Convert.ToInt32(table[i, j].Change), table[i, j].Income);
                 }
                 Console.WriteLine();
             }
@@ -103,11 +111,15 @@
         {
             int row = 0;
             int col = size - 1;
+
+            Console.WriteLine();
+
             while (col >= 0)
             {
                 Console.WriteLine(table[row, col].Income);
                 if (table[row, col].Change)
                 {
+                    Console.WriteLine("Change on " + (size - col) + " year");
                     row = 1;
                     col--;
                 }
