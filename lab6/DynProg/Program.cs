@@ -5,8 +5,8 @@
  * By the beginning of the analyzed period, new equipment was installed at the enterprise.
  * Determine the optimal equipment replacement cycle
 */
-int time = 8, initialIncome = 12, replacementCost = 12;
-ISolvable lab = new Task_1(time, initialIncome, replacementCost, new int[] { 11, 10, 9, 8, 7, 5, 3, 1, 0});
+int time = 8, replacementCost = 11;
+ISolvable lab = new Task_1(time, replacementCost, new int[] { 11, 10, 9, 8, 7, 5, 3, 1, 0});
 lab.Solve();
 
 // TASK 2

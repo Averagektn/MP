@@ -9,13 +9,13 @@
         /// The result table with incomes from all posible ways of interchanging the equipment
         /// </summary>
         private readonly Elem[,] table;
-        private readonly int size, initialIncome, expenses;
+        private readonly int size, expenses;
         private int[] incomeTable;
 
         /// <param name="size">Size of the table. Time period when equipment is used</param>
         /// <param name="initialIncome">The income of the brand new equipment</param>
         /// <param name="expenses">How much does equipment cost</param>
-        public Task_1(int size, int initialIncome, int expenses, int[] incomeTable)
+        public Task_1(int size, int expenses, int[] incomeTable)
         {
             Console.WriteLine();
             Console.WriteLine("TASK №1");
@@ -25,7 +25,6 @@
 
             table = new Elem[size + 2, size];
             this.size = size;
-            this.initialIncome = initialIncome;
             this.expenses = expenses;
         }
 
@@ -66,7 +65,7 @@
         {
             for (int i = 1; i < size; i++)
             {
-                int tmp = initialIncome - expenses + table[1, i - 1].Income;
+                int tmp = incomeTable[0] - expenses + table[1, i - 1].Income;
                 for (int j = 0; j < size + 1; j++)
                 {
                     int income = incomeTable[j]  + table[j + 1, i - 1].Income;
