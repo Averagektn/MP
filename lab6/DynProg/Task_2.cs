@@ -32,6 +32,11 @@
             f2 = new int[steps];
             currCol = 2;
             industriesInvestitions = new int[steps, interprisesNum];
+
+            for (int i = 0; i < steps; i++)
+            {
+                Console.WriteLine(incomeTable[i, 0]);
+            }
         }
 
         /// <summary>
