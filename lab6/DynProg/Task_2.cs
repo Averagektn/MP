@@ -58,14 +58,34 @@
         { 
             for (int i = 1; i < steps; i++)
             {
-                int tmp = i * budgetDiscreteness;
-                Console.WriteLine("Budget: " + tmp);
+                int tmp = i;
+                Console.WriteLine("Budget: " + tmp * budgetDiscreteness);
                 for (int j = interprisesNum - 1; j >= 1; j--)
                 {
-                    Console.WriteLine("No {0} investments {1}", j + 1, industriesInvestitions[tmp / budgetDiscreteness, j] * budgetDiscreteness);
-                    tmp -= industriesInvestitions[tmp / budgetDiscreteness, j] * budgetDiscreteness;
+                    Console.Write("Factory {0} investments: {1}; income: ", j + 1, 
+                        industriesInvestitions[tmp, j] * budgetDiscreteness);
+                    if (industriesInvestitions[tmp, j]  == 1)
+                    {
+                        Console.Write(incomeTable[1, j]);
+                    }
+                    else if (industriesInvestitions[tmp, j] == 2)
+                    {
+                        Console.Write(incomeTable[2, j]);
+                    }
+                    else if (industriesInvestitions[tmp, j] == 3)
+                    {
+                        Console.Write(incomeTable[3, j]);
+                    }
+                    else
+                    {
+                        Console.Write("0");
+                    }
+                    tmp -= industriesInvestitions[tmp, j];
+                    Console.WriteLine();
                 }
-                Console.WriteLine("No 1 investments {0}", tmp);
+
+                Console.Write("Factory 1 investments: {0}; income: ", tmp * budgetDiscreteness);
+                Console.WriteLine(incomeTable[tmp, 0]);
             }
         }
 
