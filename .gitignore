@@ -397,9 +397,16 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# logs
+*.log
+*.err
+
+# docs
 *.pdf
 *.docx
 *.doc
-*.log
-*.err
 *.xlsx
+
+# archives
+*.rar 
+*.zip
