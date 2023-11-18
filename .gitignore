@@ -403,9 +403,6 @@ FodyWeavers.xsd
 
 # docs
 *.pdf
-*.docx
-*.doc
-*.xlsx
 
 # archives
 *.rar 
